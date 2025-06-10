@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Portfolio – Creative Agency</title>
+  <style>
+    body {margin:0;font-family:sans-serif;color:#333;}
+    header.hero {
+      background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1549921296-3a6b1521f397') no-repeat center/cover;
+      height:80vh;
+      color:white;
+      display:flex; flex-direction:column;
+      justify-content:center; align-items:center;
+      text-align:center;
+    }
+    header.hero h1 {font-size:3rem; margin:0;}
+    header.hero p {font-size:1.25rem;}
+    header.hero a {margin-top:1.5rem; padding:1rem 2rem;
+      background:#ff5c5c;color:white;font-size:1rem;
+      text-decoration:none;border-radius:4px;
+    }
+    section {padding:4rem 1rem; max-width:1000px; margin:auto;}
+    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem;}
+    .service {background:#f7f7f7; padding:2rem; border-radius:8px; text-align:center;}
+    .portfolio-filters {text-align:center; margin-bottom:2rem;}
+    .portfolio-filters button {margin:0 .5rem; padding:.5rem 1rem; cursor:pointer;}
+    .portfolio-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem;}
+    .item {position:relative;}
+    .item img {width:100%; display:block; border-radius:4px;}
+    .item .caption {position:absolute;bottom:8px;left:8px;color:white;background:rgba(0,0,0,0.6);padding:4px 8px;border-radius:4px;}
+    .contact {background:#333;color:white;text-align:center;}
+    .contact a {color:#ff5c5c;text-decoration:none;}
+    footer {background:#222;color:#999;padding:2rem;text-align:center;}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>We Create Visual Stories</h1>
+    <p>Video Production | Social Media | Motion Graphics | Branding | Photography</p>
+    <a href="#contact">Let’s Work Together</a>
+  </header>
+  
+  <section id="services">
+    <h2 style="text-align:center">Our Services</h2>
+    <div class="services">
+      <div class="service"><h3>Video Production</h3><p>Commercials, Event highlights, Corporate.</p></div>
+      <div class="service"><h3>Social Media</h3><p>Content creation & daily management.</p></div>
+      <div class="service"><h3>Motion Graphics</h3><p>Explainers, animations, dynamic visuals.</p></div>
+      <div class="service"><h3>Branding</h3><p>Brand identity, design, strategy.</p></div>
+      <div class="service"><h3>Photography</h3><p>Product, corporate, event coverage.</p></div>
+    </div>
+  </section>
+  
+  <section id="portfolio">
+    <h2 style="text-align:center">Our Work</h2>
+    <div class="portfolio-filters">
+      <button onclick="filterCat('all')">All</button>
+      <button onclick="filterCat('video')">Video</button>
+      <button onclick="filterCat('social')">Social Media</button>
+      <button onclick="filterCat('motion')">Motion Graphics</button>
+      <button onclick="filterCat('branding')">Branding</button>
+      <button onclick="filterCat('photo')">Photography</button>
+    </div>
+    <div class="portfolio-grid" id="grid">
+      <div class="item" data-cat="video"><img src="https://via.placeholder.com/400x300?text=Video+Project"><div class="caption">Maybank TVC</div></div>
+      <div class="item" data-cat="social"><img src="https://via.placeholder.com/400x300?text=Social+Media"><div class="caption">ICE Instagram</div></div>
+      <div class="item" data-cat="motion"><img src="https://via.placeholder.com/400x300?text=Motion+Graphic"><div class="caption">Shell Animation</div></div>
+      <div class="item" data-cat="branding"><img src="https://via.placeholder.com/400x300?text=Branding"><div class="caption">Karvi Jewelry</div></div>
+      <div class="item" data-cat="photo"><img src="https://via.placeholder.com/400x300?text=Photography"><div class="caption">Netflix Promo</div></div>
+    </div>
+  </section>
+  
+  <section class="contact" id="contact" style="padding:3rem 1rem;">
+    <h2>Interested in Working Together?</h2>
+    <p>Email us at <a href="mailto:you@example.com">you@example.com</a> or call <strong>+62 XXX XXX XXX</strong></p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Your Agency Name. All rights reserved.</p>
+    <p>Jl. Kemang Selatan..., Jakarta Selatan ● Instagram • LinkedIn • Email</p>
+  </footer>
+  
+  <script>
+    function filterCat(cat){
+      document.querySelectorAll('.portfolio-grid .item').forEach(el=>{
+        el.style.display = (cat==='all'|| el.getAttribute('data-cat')===cat) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
